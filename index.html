@@ -1,72 +1,146 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racik — Creator Agent untuk Affiliate</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a1a; background: #fafafa; }
-    .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
-    header { text-align: center; margin-bottom: 2.5rem; }
-    h1 { font-size: 2.4rem; margin-bottom: 0.5rem; }
-    .tag { color: #666; font-size: 0.95rem; }
-    img.cover { width: 100%; border-radius: 12px; margin: 1.5rem 0; }
-    section { margin: 2rem 0; }
-    h2 { font-size: 1.4rem; margin-bottom: 0.75rem; border-bottom: 2px solid #eee; padding-bottom: 0.3rem; }
-    ul { padding-left: 1.2rem; }
-    li { margin: 0.4rem 0; }
-    code, pre { background: #f4f4f4; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
-    pre { padding: 1rem; overflow-x: auto; margin: 0.75rem 0; }
-    a { color: #0066cc; }
-    footer { text-align: center; margin-top: 3rem; color: #888; font-size: 0.85rem; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Racik — Demo Creator Agent</title>
+<style>
+  :root { --bg: #0f0f0f; --card: #1a1a1a; --border: #2a2a2a; --text: #eee; --muted: #999; --accent: #3b82f6; --accent2: #10b981; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  header { text-align: center; margin-bottom: 1.5rem; }
+  h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+  .sub { color: var(--muted); font-size: 0.95rem; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem; }
+  textarea { width: 100%; min-height: 140px; background: #111; color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem; font-family: inherit; font-size: 0.95rem; resize: vertical; }
+  .row { display: flex; gap: 0.75rem; margin-top: 0.75rem; flex-wrap: wrap; }
+  button { background: var(--accent); color: white; border: none; padding: 0.6rem 1.1rem; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 0.95rem; }
+  button.secondary { background: #333; }
+  button:hover { opacity: 0.9; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .tabs { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .tab { background: #222; border: 1px solid var(--border); color: var(--muted); padding: 0.4rem 0.8rem; border-radius: 999px; cursor: pointer; font-size: 0.85rem; }
+  .tab.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .output { display: none; }
+  .output.active { display: block; }
+  .item { background: #111; border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem; margin-bottom: 0.75rem; white-space: pre-wrap; font-size: 0.92rem; }
+  .item strong { color: var(--accent2); }
+  .badge { display: inline-block; background: #222; color: var(--muted); font-size: 0.75rem; padding: 0.15rem 0.45rem; border-radius: 4px; margin-right: 0.4rem; }
+  footer { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 2rem; }
+  .note { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Racik</h1>
-      <p class="tag">Creator Agent untuk affiliate · Tencent Cloud Hackathon Indonesia 2026</p>
-      <img class="cover" src="cover.jpg" alt="Racik cover">
-      <p>Satu link/brief produk affiliate menghasilkan <strong>10 tweet + 3 thread storytelling soft-sell + 4 naskah TikTok + kalender Excel + laporan compliance</strong>, dikirim tiap pagi ke Telegram.</p>
-    </header>
+<div class="wrap">
+  <header>
+    <h1>Racik</h1>
+    <p class="sub">Creator Agent Demo — masukkan brief produk, langsung lihat hasil draft</p>
+  </header>
 
-    <section>
-      <h2>Apa yang dihasilkan</h2>
-      <ul>
-        <li>10 post X (tweet)</li>
-        <li>3 thread storytelling soft-sell</li>
-        <li>4 naskah TikTok (EDU, FOOD, TREN, GAME)</li>
-        <li>Kalender posting Excel</li>
-        <li>Laporan compliance (disclosure, overclaim, klaim terlarang)</li>
-      </ul>
-      <p style="margin-top:0.75rem">Drafts only — tidak ada auto-posting. Dibangun di atas <strong>Tencent WorkBuddy</strong> skills.</p>
-    </section>
-
-    <section>
-      <h2>Struktur skills</h2>
-      <pre>skills/
-  racik/SKILL.md                         # orkestrator
-  brand-voice/SKILL.md                   # gaya bahasa
-  storytelling-softsell/SKILL.md         # framework thread
-  tiktok-script/SKILL.md                 # 4 persona
-  compliance-check/SKILL.md              # cek klaim</pre>
-    </section>
-
-    <section>
-      <h2>Contoh</h2>
-      <p>Brief produk contoh: <a href="examples/termos-kunci-lulus.md">termos-kunci-lulus.md</a></p>
-    </section>
-
-    <section>
-      <h2>Prinsip</h2>
-      <p>Racik hanya membuat draf. User yang meninjau dan memposting sendiri. Semua konten berlink affiliate wajib lolos compliance-check.</p>
-    </section>
-
-    <footer>
-      <p>Repo: <a href="https://github.com/litaksa/racik">github.com/litaksa/racik</a></p>
-      <p style="margin-top:0.5rem">#WorkBuddy #TencentCloudHackathon</p>
-    </footer>
+  <div class="card">
+    <textarea id="brief" placeholder="Tempel brief produk di sini...">Produk: Yannice Termos Pemanas Air Listrik Mobil Portable
+Harga: Rp339.740 → Rp322.753 (diskon 5%)
+Fakta: bisa panasin air sampai 100°C, layar suhu digital, bodi stainless 316, insulasi ganda, daya 100W, cocok colokan mobil 12V/24V, ringan portabel
+Target: yang sering road trip, mudik, sopir travel/truk, suka ngopi atau bikin mie di jalan
+Link: https://shop-id.tokopedia.com/view/product/1736491757018973577
+Larangan: jangan klaim waktu mendidih dalam menit, jangan klaim kapasitas</textarea>
+    <div class="row">
+      <button id="generate">Racik sekarang</button>
+      <button class="secondary" id="reset">Reset contoh</button>
+    </div>
+    <p class="note">Demo client-side. Hasil adalah draft contoh berbasis skill Racik (bukan AI live).</p>
   </div>
+
+  <div class="card" id="results" style="display:none">
+    <div class="tabs">
+      <div class="tab active" data-tab="tweets">10 Tweets</div>
+      <div class="tab" data-tab="threads">3 Threads</div>
+      <div class="tab" data-tab="tiktok">4 Naskah TikTok</div>
+      <div class="tab" data-tab="compliance">Compliance</div>
+    </div>
+    <div id="tweets" class="output active"></div>
+    <div id="threads" class="output"></div>
+    <div id="tiktok" class="output"></div>
+    <div id="compliance" class="output"></div>
+  </div>
+
+  <footer>
+    Repo: <a href="https://github.com/litaksa/racik" style="color:#3b82f6">github.com/litaksa/racik</a> · Draft only, no auto-posting<br>
+    #WorkBuddy #TencentCloudHackathon
+  </footer>
+</div>
+
+<script>
+const exampleBrief = document.getElementById('brief').value;
+
+const demo = {
+  tweets: [
+    "Termos mobil yang bisa panasin air sampe 100°C. Cocok banget buat yang sering di jalan, mudik, atau kerja sopir.\n\nDiskon jadi 322rb, colok 12V/24V langsung jalan.\n\n#ad",
+    "Sering bawa air panas dari rumah terus dingin di tengah jalan? Coba termos pemanas listrik mobil ini.\n\nStainless 316, layar suhu digital, insulasi ganda.\n\nLink di bio #ad",
+    "Road trip panjang + ngopi di jalan = butuh termos yang bisa panasin ulang.\n\nYang ini daya 100W, ringan, portabel. Sudah coba rating 5 bintang.\n\n#ad",
+    "Sopir travel / truk yang suka bikin mie atau kopi di kabin, ini alat yang masuk akal.\n\nPanasin air sampai 100°C, colok di mobil langsung.\n\n#ad",
+    "Lagi promo termos pemanas air listrik mobil. Dari 339rb jadi 322rb.\n\nBodi stainless, ada auto protection, cocok 12V & 24V.\n\n#ad",
+    "Bukan cuma buat ngopi. Bisa buat bikin mie instan atau minuman panas di tengah perjalanan.\n\nRingan, layar digital, insulasi ganda.\n\n#ad",
+    "Yang sering mudik atau long trip, simpan dulu. Termos listrik mobil yang bisa panasin ulang di jalan.\n\nHarga promo di bawah 330rb.\n\n#ad",
+    "Review singkat: termos pemanas mobil stainless 316. Layar suhu jelas, daya 100W, colok langsung.\n\nCocok buat yang sering di kabin lama.\n\n#ad",
+    "Stop bawa air panas dari rumah yang ujungnya dingin. Ada termos listrik khusus colokan mobil.\n\nDiskon 5%, ongkir mulai 9rb.\n\n#ad",
+    "Termos portable + pemanas listrik dalam satu. Buat road trip atau kerja di jalan lebih praktis.\n\nLink produk di bio, cek dulu ya #ad"
+  ],
+  threads: [
+    "1/ Sering di jalan panjang terus pengen ngopi atau bikin mie tapi air panas dari rumah udah dingin di tengah jalan.\n\n2/ Bawa kompor atau panci di mobil ribet dan berisiko. Colokan mobil ada, tapi alat yang bisa panasin air dengan aman terbatas.\n\n3/ Coba termos pemanas listrik khusus mobil. Colok 12V atau 24V, layar suhu digital, bodi stainless 316.\n\n4/ Bisa panasin sampai 100°C, ada insulasi ganda dan auto protection. Ringan, gampang disimpan di kabin.\n\n5/ Lagi promo dari 339rb jadi sekitar 322rb. Yang sering road trip, mudik, atau sopir, worth dicek.\n\n6/ Link di reply. Ini link toko, harga bisa berubah. #ad",
+    "1/ Kerja sopir atau sering long trip, kebutuhan air panas di kabin sebenarnya sering muncul.\n\n2/ Bikin kopi, seduh mie, atau sekadar air hangat. Bawa dari rumah repot dan cepat dingin.\n\n3/ Termos listrik mobil ini daya 100W, colok langsung di 12V/24V, layar digital biar kelihatan suhunya.\n\n4/ Stainless 316 tahan karat, insulasi ganda, ada proteksi. Bukan klaim ajaib, tapi praktis buat di jalan.\n\n5/ Rating 5 bintang dari yang sudah coba, meski masih sedikit. Harga promo di bawah 330rb.\n\n6/ Mau lirik, link di reply. Cek detail dan harga terbaru di toko. #ad",
+    "1/ Mudik atau road trip panjang, biasanya air panas jadi masalah kecil yang ganggu.\n\n2/ Termos biasa cuma jaga suhu. Yang ini bisa panasin ulang karena ada pemanas listrik di dalamnya.\n\n3/ Colok di mobil, set suhu lewat layar digital, tunggu sampai 100°C. Bodi stainless, ringan.\n\n4/ Cocok buat yang suka ngopi di jalan atau bikin camilan panas tanpa harus mampir.\n\n5/ Lagi diskon 5%, jadi sekitar 322rb. Ongkir mulai 9rb tergantung lokasi.\n\n6/ Link produk di reply ya. #ad"
+  ],
+  tiktok: [
+    "AKUN: FOOD\nDURASI: 45 dtk\nHOOK (0-2 dtk): \"Bisa bikin mie di dalam mobil?\" | TEKS LAYAR: Bikin mie di mobil\nBAGIAN 2-10 dtk: Sering di jalan panjang, lapar, tapi mampir makan mahal dan lama.\nBAGIAN 10-40 dtk: Colok termos pemanas ke colokan mobil, panasin air sampai mendidih, tuang ke mie, tunggu sebentar.\nBAGIAN akhir: Link di keranjang kuning, save dulu.\nSHOT LIST: 1) close up colokan mobil 2) termos menyala + layar suhu 3) tuang air ke mie 4) hasil mie 5) CTA\nCAPTION: praktis buat yang sering di jalan #ad\nHASHTAG: #mieinstan #roadtrip #racuntiktok\nDISCLOSURE: #ad",
+    "AKUN: TREN\nDURASI: 35 dtk\nHOOK: \"Alat road trip yang lagi kepake di luar\" | TEKS LAYAR: Termos listrik mobil\nBAGIAN 2-10: Di beberapa negara, alat panasin air di mobil udah biasa buat long trip.\nBAGIAN 10-30: Yang ini stainless, layar digital, colok 12/24V, bisa sampe 100 derajat.\nBAGIAN akhir: Cek link di bio.\nSHOT LIST: 1) termos di dashboard 2) layar suhu 3) colok ke mobil 4) close up produk\nCAPTION: buat yang sering mudik atau long trip #ad\nHASHTAG: #roadtrip #termos #indonesia\nDISCLOSURE: #ad",
+    "AKUN: EDU\nDURASI: 40 dtk\nHOOK: \"Yang sering di jalan, ini alat praktis\" | TEKS LAYAR: Termos + pemanas\nBAGIAN 2-10: Bukan cuma buat ngopi, bisa buat seduh apa aja yang butuh air panas.\nBAGIAN 10-35: Daya 100W, stainless 316, auto protection, cocok colokan mobil.\nBAGIAN akhir: Save + cek detail di link.\nSHOT LIST: 1) unboxing singkat 2) fitur layar 3) colok 4) hasil air panas\nCAPTION: praktis buat perjalanan jauh #ad\nHASHTAG: #tipsperjalanan #mudik #alatmobil\nDISCLOSURE: #ad",
+    "AKUN: GAME\nDURASI: 30 dtk\nHOOK: \"Setup kabin buat long trip\" | TEKS LAYAR: Kabin + termos\nBAGIAN 2-10: Main game di mobil atau istirahat di rest area, tetap butuh minuman panas.\nBAGIAN 10-25: Termos listrik colok di mobil, praktis, tidak ribet.\nBAGIAN akhir: Link di bio.\nSHOT LIST: 1) kabin mobil 2) termos di tempat 3) layar suhu 4) CTA\nCAPTION: buat yang sering di jalan lama #ad\nHASHTAG: #setupmobil #roadtrip #gaming\nDISCLOSURE: #ad"
+  ],
+  compliance: [
+    "✅ Semua draft sudah pakai disclosure #ad",
+    "✅ Tidak ada klaim waktu mendidih dalam menit (sesuai larangan brief)",
+    "✅ Tidak ada klaim kapasitas yang tidak ada di brief",
+    "✅ Fakta yang dipakai hanya yang ada di brief (100°C, stainless 316, 100W, 12V/24V, layar digital)",
+    "✅ Tidak ada overclaim kesehatan atau hasil instan",
+    "Catatan: Draft ini contoh. User tetap harus review sebelum posting. Harga dan stok bisa berubah."
+  ]
+};
+
+function render() {
+  document.getElementById('tweets').innerHTML = demo.tweets.map((t,i) => `<div class="item"><span class="badge">Tweet ${i+1}</span>\n${t}</div>`).join('');
+  document.getElementById('threads').innerHTML = demo.threads.map((t,i) => `<div class="item"><span class="badge">Thread ${i+1}</span>\n${t}</div>`).join('');
+  document.getElementById('tiktok').innerHTML = demo.tiktok.map((t,i) => `<div class="item"><span class="badge">Naskah ${i+1}</span>\n${t}</div>`).join('');
+  document.getElementById('compliance').innerHTML = demo.compliance.map(t => `<div class="item">${t}</div>`).join('');
+  document.getElementById('results').style.display = 'block';
+}
+
+document.getElementById('generate').onclick = () => {
+  const btn = document.getElementById('generate');
+  btn.disabled = true;
+  btn.textContent = 'Meracik...';
+  setTimeout(() => {
+    render();
+    btn.disabled = false;
+    btn.textContent = 'Racik sekarang';
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 600);
+};
+
+document.getElementById('reset').onclick = () => {
+  document.getElementById('brief').value = exampleBrief;
+  document.getElementById('results').style.display = 'none';
+};
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.onclick = () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.output').forEach(o => o.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  };
+});
+</script>
 </body>
 </html>
