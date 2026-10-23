@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Racik — Creator Agent untuk Affiliate</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a1a1a; background: #fafafa; }
+    .container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+    header { text-align: center; margin-bottom: 2.5rem; }
+    h1 { font-size: 2.4rem; margin-bottom: 0.5rem; }
+    .tag { color: #666; font-size: 0.95rem; }
+    img.cover { width: 100%; border-radius: 12px; margin: 1.5rem 0; }
+    section { margin: 2rem 0; }
+    h2 { font-size: 1.4rem; margin-bottom: 0.75rem; border-bottom: 2px solid #eee; padding-bottom: 0.3rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.4rem 0; }
+    code, pre { background: #f4f4f4; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9em; }
+    pre { padding: 1rem; overflow-x: auto; margin: 0.75rem 0; }
+    a { color: #0066cc; }
+    footer { text-align: center; margin-top: 3rem; color: #888; font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Racik</h1>
+      <p class="tag">Creator Agent untuk affiliate · Tencent Cloud Hackathon Indonesia 2026</p>
+      <img class="cover" src="cover.jpg" alt="Racik cover">
+      <p>Satu link/brief produk affiliate menghasilkan <strong>10 tweet + 3 thread storytelling soft-sell + 4 naskah TikTok + kalender Excel + laporan compliance</strong>, dikirim tiap pagi ke Telegram.</p>
+    </header>
+
+    <section>
+      <h2>Apa yang dihasilkan</h2>
+      <ul>
+        <li>10 post X (tweet)</li>
+        <li>3 thread storytelling soft-sell</li>
+        <li>4 naskah TikTok (EDU, FOOD, TREN, GAME)</li>
+        <li>Kalender posting Excel</li>
+        <li>Laporan compliance (disclosure, overclaim, klaim terlarang)</li>
+      </ul>
+      <p style="margin-top:0.75rem">Drafts only — tidak ada auto-posting. Dibangun di atas <strong>Tencent WorkBuddy</strong> skills.</p>
+    </section>
+
+    <section>
+      <h2>Struktur skills</h2>
+      <pre>skills/
+  racik/SKILL.md                         # orkestrator
+  brand-voice/SKILL.md                   # gaya bahasa
+  storytelling-softsell/SKILL.md         # framework thread
+  tiktok-script/SKILL.md                 # 4 persona
+  compliance-check/SKILL.md              # cek klaim</pre>
+    </section>
+
+    <section>
+      <h2>Contoh</h2>
+      <p>Brief produk contoh: <a href="examples/termos-kunci-lulus.md">termos-kunci-lulus.md</a></p>
+    </section>
+
+    <section>
+      <h2>Prinsip</h2>
+      <p>Racik hanya membuat draf. User yang meninjau dan memposting sendiri. Semua konten berlink affiliate wajib lolos compliance-check.</p>
+    </section>
+
+    <footer>
+      <p>Repo: <a href="https://github.com/litaksa/racik">github.com/litaksa/racik</a></p>
+      <p style="margin-top:0.5rem">#WorkBuddy #TencentCloudHackathon</p>
+    </footer>
+  </div>
+</body>
+</html>
